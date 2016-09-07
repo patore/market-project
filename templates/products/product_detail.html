@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<p>Title: {{ object.title }}</br></p>
+	{% for img in object.thumbnail_set.all %}
+		 <img src="{{ img.media.url }}"/>
+	{% endfor %}
+	<p>Description: {{ object.description }}</br></p>
+	<p>Media: {{ object.media }}</br></p>
+	<p>Price: {{ object.price }}</br></p>
+	<p>Sale Price: {{ object.sale_price }}</br></p>
+{% endblock content %}

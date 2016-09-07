@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load get_thumbnail %}
+{% block content %}
+
+<ul>
+	{% for product_instance in object.products.all %}
+		<li><a href='{{ product_instance.get_absolute_url }}'><img src='{{ product_instance|get_thumbnail:"hd" }}'></a>
+		</li>
+		<hr/>
+	{% empty %}
+		<p>No tags yet.</p>
+	{% endfor %}
+</ul>
+
+
+{% endblock %}
+
+

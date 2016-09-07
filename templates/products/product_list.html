@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Products</h1>
+<p>
+	<form method="GET" action="">
+		<input type="text" name="q" placeholder="Search" value="{{ request.GET.q }}">
+		<input type="submit" value="Search"/>
+	</form>
+</p>
+<hr/>
+
+	{% for instance in object_list %}
+	<div style="width: 30%; 
+	">
+		<p>{{ instance.title }}</p>
+		{% for img in instance.thumbnail_set.all %}
+			 <img src="{{ img.media.url }}"/>
+		{% endfor %}
+		<p>{{ instance.description }}</p>
+		<p>{{ instance.price}}</p>
+		<li><a href="{{ instance.get_absolute_url }}">{{ instance.title }}</a></li>
+		<hr/>
+	{% empty %}
+		<p>No products yet.</p>
+	</div>
+	{% endfor %}
+
+
+{% endblock %}
+
+

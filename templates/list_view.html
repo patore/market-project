@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block style %}
+p {
+	color: blue;
+}
+{% endblock style %}
+
+{% block content %}
+<p>Hello there</p>
+{{ queryset }}
+	{{ block.super }}
+{% endblock content %}
